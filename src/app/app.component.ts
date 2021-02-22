@@ -40,12 +40,12 @@ export class AppComponent implements AfterViewChecked{
   }
 
   onMinusCount(id):void {
-    this.purchases = this.purchases.map((p) => {
-      if(p.id === id) {
-        p.count -=1;
-        return p;
+    this.purchases = this.purchases.map((purchase) => {
+      if(purchase.id === id) {
+        purchase.count -=1;
+        return purchase;
       }
-      return p;
+      return purchase;
     });
   }
 
@@ -57,10 +57,15 @@ export class AppComponent implements AfterViewChecked{
       }
       return book;
     })
+    console.log(this.books)
   }
 
   onDeleteCardItem(id):void {
     this.changeAvailableStatus(id);
     this.purchases = this.purchases.filter((purchase) => purchase.id !== id);
+  }
+
+  trackIsAvailable(index, book) {
+    return book.isAvailable;
   }
 }

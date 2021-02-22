@@ -6,6 +6,7 @@ import IBook from '../../models/Book';
   selector: 'app-book-component',
   templateUrl: './book-component.component.html',
   styleUrls: ['./book-component.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
 export class BookComponentComponent implements OnInit {
