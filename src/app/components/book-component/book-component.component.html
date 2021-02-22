@@ -1,0 +1,20 @@
+<mat-card class="book-card">
+  <mat-card-header>
+    <mat-card-title>{{ book.name }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p class="book-description"> {{ book.description }}</p>
+    <p class="book-price">Price: {{ book.price }}</p>
+    <p class="book-category"> Category: {{ book.category }}</p>
+    <p class="book-created">Year: {{ book.createDate }}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button
+      mat-raised-button color="accent"
+      [disabled] = "!book.isAvailable"
+      (click)="onClickHandler(book)"
+    >
+      Buy
+    </button>
+  </mat-card-actions>
+</mat-card>

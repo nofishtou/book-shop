@@ -1,0 +1,14 @@
+<div class="card-component">
+  <h2>Bag</h2>
+  <ul class="card-component-list" *ngIf="purchases.length">
+    <app-card-item
+      *ngFor="let purchase of purchases; index as i;"
+      [purchase]="purchase" [index]="i"
+      (addCount)="onAddCount($event)"
+      (minusCount)="onMinusCount($event)"
+      (deleteCardItem)="onDeleteCardItem($event)"
+    >
+    </app-card-item>
+  </ul>
+  <p *ngIf="!purchases.length">No items in bag</p>
+</div>
