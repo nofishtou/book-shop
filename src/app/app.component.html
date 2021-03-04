@@ -1,20 +1,6 @@
 <div class="container">
   <h1 #mainTitle></h1>
-  <h2> List of Books</h2>
-  <div class="list-of-books">
-    <app-book-component
-      *ngFor="let book of books, trackBy: trackIsAvailable"
-      [book]="book"
-      (Buy)="onBuyHandler($event)"
-    >
-    </app-book-component>
-  </div>
-  <app-card-component
-    [purchases]="purchases"
-    (addCount)="onAddCount($event)"
-    (minusCount)="onMinusCount($event)"
-    (deleteCardItem)="onDeleteCardItem($event)"
-  >
-  </app-card-component>
+  <app-book-list></app-book-list>
+  <app-card-list></app-card-list>
 </div>
 

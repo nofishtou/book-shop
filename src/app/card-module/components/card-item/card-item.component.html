@@ -1,6 +1,6 @@
 <li class="card-item">
   <span class="card-item-index">{{index + 1}}.</span>
-  <span>{{purchase.bookName}}</span>
+  <span>{{purchase.name}}</span>
   <div class="card-item-body">
     <button mat-mini-fab color="primary" (click)="onMinusCount(purchase.id)" [disabled]="!this.purchase.count">-</button>
     <span>{{purchase.count}}</span>
