@@ -1,6 +1,6 @@
 <div class="card-component">
   <h2>Bag</h2>
-  <div class="bag-body" *ngIf="purchases.length">
+  <ng-container class="bag-body" *ngIf="purchases.length">
     <ul class="card-component-list">
       <app-card-item
         *ngFor="let purchase of purchases; index as i;"
@@ -13,6 +13,8 @@
     </ul>
     <p>Total Quantity: {{ CardService.getTotalQuantity() }}</p>
     <p>Total Sum: {{ CardService.getTotalSum() }}</p>
-  </div>
+  </ng-container>
 </div>
-<p *ngIf="!purchases.length">No items in bag</p>
+<ng-container *ngIf="!purchases.length">
+  <p>No items in bag</p>
+</ng-container>
