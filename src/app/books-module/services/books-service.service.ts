@@ -7,7 +7,10 @@ export class BooksServiceService {
   books: IBook[] = BOOKS;
 
   getList() {
-    return this.books;
+    return new Promise ((resolve) => {
+      resolve(this.books);
+    })
+    // return this.books;
   }
 
   changeStatus(id) {

@@ -1,7 +1,7 @@
 <h2> List of Books</h2>
 <div class="list-of-books">
   <app-book-component
-    *ngFor="let book of books, trackBy: trackIsAvailable"
+    *ngFor="let book of books | async, trackBy: trackIsAvailable"
     [book]="book"
     (Buy)="onBuyHandler($event)"
   >

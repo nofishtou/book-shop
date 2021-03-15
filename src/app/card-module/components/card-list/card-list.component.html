@@ -1,14 +1,23 @@
 <div class="card-component">
   <h2>Bag</h2>
   <ng-container class="bag-body" *ngIf="purchases.length">
+    <label for="selectCardSortBy">Sort By: <select name="selectCardSortNameBy" id="selectCardSortBy" [(ngModel)]="sortBy"
+        (change)="onChangeSortByHandler($event)">
+        <option value="price">Price</option>
+        <option value="name">Name</option>
+        <option value="count">Count</option>
+      </select></label>
+
+    <label for="selectCardSortType">Type of sorting: <select name="selectCardSortTypeName" id="selectCardSortType"
+        [(ngModel)]="sortType" (change)="onChangeSortTypeHandler($event)">
+        <option value="ascending">Ascending</option>
+        <option value="descending">Descending</option>
+      </select></label>
+
     <ul class="card-component-list">
-      <app-card-item
-        *ngFor="let purchase of purchases; index as i;"
-        [purchase]="purchase" [index]="i"
-        (addCount)="onAddCount($event)"
-        (minusCount)="onMinusCount($event)"
-        (deleteCardItem)="onDeleteCardItem($event)"
-      >
+      <app-card-item *ngFor="let purchase of purchases | orderByPipe: sortBy: sortType; index as i; trackBy: trackByCount" [purchase]="purchase"
+        [index]="i" (addCount)="onAddCount($event)" (minusCount)="onMinusCount($event)"
+        (deleteCardItem)="onDeleteCardItem($event)">
       </app-card-item>
     </ul>
     <p>Total Quantity: {{ CardService.getTotalQuantity() }}</p>
