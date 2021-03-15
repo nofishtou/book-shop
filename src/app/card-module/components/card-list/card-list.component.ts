@@ -10,6 +10,10 @@ import { CardServiceService } from '../../services/card-service.service';
 export class CardListComponent implements OnInit {
   purchases: ICardItem[] = [];
 
+  sortBy: string = 'name';
+
+  sortType: string = 'descending';
+
   totalQuantity = 0;
 
   totalSum = 0;
@@ -30,5 +34,17 @@ export class CardListComponent implements OnInit {
 
   onDeleteCardItem(id): void {
     this.CardService.removeBook(id);
+  }
+
+  trackByCount(index, cardItem): number {
+    return cardItem.count;
+  }
+
+  onChangeSortTypeHandler(e) {
+    this.sortType = e.target.value;
+  }
+
+  onChangeSortByHandler(e) {
+    this.sortBy = e.target.value;
   }
 }

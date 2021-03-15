@@ -5,7 +5,7 @@
   <mat-card-content>
     <p class="book-description"> {{ book.description }}</p>
     <p class="book-price">Price: {{ book.price }}</p>
-    <p class="book-category"> Category: {{ book.category }}</p>
+    <p class="book-category"> Category: {{ book.category | uppercase }}</p>
     <p class="book-created">Year: {{ book.createDate }}</p>
   </mat-card-content>
   <mat-card-actions>
